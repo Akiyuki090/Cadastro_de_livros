@@ -1,54 +1,80 @@
-*{
-    font-family: 'roboto';
+* {
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-h1{
-    text-align: center;
+#navbar {
+  border-bottom: 1px solid #ccc;
+  padding: 1em;
+  margin-bottom: 1em;
 }
 
-.navbar{
-    border-bottom: 1px solid black;
-    padding: 0.5em;
-    margin-bottom: 1em;
+#navbar ul {
+  display: flex;
+  list-style: none;
 }
 
-.navbar ul{
-    display: flex;
-    list-style: none;
+#navbar ul li {
+  margin-left: 1em;
 }
 
-.navbar ul li{
-    margin-left: 1em;
+h1 {
+  text-align: center;
+  margin-bottom: 1em;
 }
 
-.form,
-.books-container{
-    width: 450px;
-    margin: 0 auto;
+.form {
+  width: 450px;
+  margin: 0 auto;
 }
 
-.form-action{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.5em;
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
 }
 
-.form-action label{
-    font-weight: bold;
-    margin-bottom: 0.3em;
+.form-control label {
+  font-weight: bold;
+  margin-bottom: 0.3em;
 }
 
-.form-action input{
-    padding: 5px;
+.form-control input {
+  padding: 5px;
 }
 
-/*Books*/
-.books-container div{
-    border-bottom: solid 1px black;
-    padding: 5px;
-    margin: 5px;
+/* BOOKS */
+.books-container {
+  width: 450px;
+  margin: 0 auto;
 }
 
-.bold{
-    font-weight: bold;
+.books-container div {
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  margin: 5px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* BOOK */
+#book-page {
+  padding: 2em;
+}
+
+#book-page .container {
+  text-align: center;
+}
+
+.actions {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+}
+
+.actions a {
+  margin-right: 1em;
 }

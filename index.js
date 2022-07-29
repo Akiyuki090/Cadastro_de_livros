@@ -46,14 +46,63 @@ app.get("/books/:id", (req, res) => {
       return;
     }
     const book = data[0];
-    res.render("book", {book});
+    res.render("book", { book });
   });
 });
+
+app.get("/books/edit/:id", (req, res) => {
+  const id = req.params.id;
+
+  const sql = `SELECT * FROM books WHERE id = ${id}`;
+
+  conn.query(sql, (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    const book = data[0];
+    res.render("editbook", { book });
+  });
+});
+
+app.post("/books/updatebook", function (req, res) {
+  const id = req.body.id;
+  const title = req.body.title;
+  const pagesqty = req.body.pagesqty;
+
+  const query = `UPDATE books SET title = '${title}', pagesqty = ${pagesqty} WHERE id = ${id}`;
+
+  conn.query(query, function (err) {
+    if (err) {
+      console.log(err);
+    }
+
+    res.redirect(`/books/edit/${id}`);
+  });
+});
+
+app.post('/books/remove/:id', (req, res) => {
+    const id = req.params.id;
+
+    const sql = `DELETE FROM books WHERE id = ${id}`
+
+    conn.query(sql, function (err) {
+      if (err) {
+        console.log(err);
+      }
+
+      res.redirect('/books');
+    });
+
+})
 
 conn.connect((err) => {
   if (err) {
     console.log(err);
   }
   console.log("Conectou ao banco");
-  app.listen(port);
+  app.listen(port, () => {
+    console.log("Conectou na porta: " + port);
+  });
 });
